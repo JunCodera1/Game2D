@@ -14,16 +14,44 @@ public class Event01 {
 		gm.ui.messageText.setText("Who you are talking to ?");
 	}
 	public void restHut() {
-		gm.ui.messageText.setText("You rest at the hut.\n(Your life has recovered)");
+		if(gm.player.playerLife != gm.player.playerMaxLife) {
+			gm.ui.messageText.setText("You rest at the hut.\n(Your life has recovered)");
+			gm.player.playerLife++;
+			gm.player.updatePlayerStatus();
+		}
+		else {
+			gm.ui.messageText.setText("Your life is full.");
+		}
 	}
 	public void lookDragon() {
-		gm.ui.messageText.setText("a Dragon is standing in front of you ");
+		gm.ui.messageText.setText("a Knight is standing in front of you ");
 	}
 	public void talkDragon() {
 		gm.ui.messageText.setText("Dragon : Don't go any further without a weapon!\nYou should check the chest over there!");
 	}
 	public void attackDragon() {
-		gm.ui.messageText.setText("Dragon : Hey, don't attack me!");
+		if(gm.player.hasShield == 0) {
+			if(gm.player.hasSword == 0) {
+				if(gm.player.playerLife != 1) {
+					gm.ui.messageText.setText("Dragon : Hey, don't be stupid!\n(The guard hits you back and your life decreases by 1");
+				    gm.player.playerLife--;
+			//	    gm.player.updatePlayerStatus();
+				}
+				else if(gm.player.playerLife == 1) {
+					gm.ui.messageText.setText("Dragon: What a fool.");
+					gm.player.playerLife--;
+		//			gm.player.updatePlayerStatus();
+				}
+			}
+			else if(gm.player.hasSword == 1) {
+				gm.ui.messageText.setText("Oh shit!\n(You have defeated the knight and gotten his shield!)");
+				gm.player.hasShield += 1;
+			}
+			gm.player.updatePlayerStatus();
+		}
+		else {
+			gm.ui.messageText.setText("Dragon: Just leave me alone.");
+		}
 	}
 	public void lookChest() {
 		gm.ui.messageText.setText("Wow ! We have a chest");
@@ -32,24 +60,13 @@ public class Event01 {
 		gm.ui.messageText.setText("Dragon : ...");
 	}
 	public void openChest() {
-		gm.ui.messageText.setText("Dragon open the chest and find a weapon!");	
-	}
-	public void lookCave() {
-		gm.ui.messageText.setText("You look to the cave...");
-	}
-	public void talkCave() {
-		gm.ui.messageText.setText("Wow! this cave so large");
-	}
-	public void enterCave() {
-		gm.ui.messageText.setText("Let's go into the cave");
-	}
-	public void lookRoot() {
-		gm.ui.messageText.setText("");
-	}
-	public void talkRoot() {
-		gm.ui.messageText.setText("");
-	}
-	public void searchRoot() {
-		gm.ui.messageText.setText("");
+		if(gm.player.hasSword == 0) {
+			gm.ui.messageText.setText("Knight open the chest and find a weapon!");	
+            gm.player.hasSword = 1;
+            gm.player.updatePlayerStatus();
+		}
+		else {
+			gm.ui.messageText.setText("There's nothing inside...");
+		}
 	}
 }

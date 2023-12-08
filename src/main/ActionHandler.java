@@ -22,12 +22,12 @@ public class ActionHandler implements ActionListener {
 		case "lookChest": gm.ev1.lookChest();break;
 		case "talkChest": gm.ev1.talkChest();break;
 		case "openChest": gm.ev1.openChest();break;
-		case "lookCave" : gm.ev1.lookCave();break;
-		case "talkCave" : gm.ev1.talkCave();break;
-		case "enterCave": gm.ev1.enterCave();break;
-		case "lookRoot" : gm.ev1.lookRoot();break;
-		case "talkRoot" : gm.ev1.talkRoot();break;
-		case "searchRoot": gm.ev1.searchRoot();break;
+		case "lookCave" : gm.ev2.lookCave();break;
+		case "talkCave" : gm.ev2.talkCave();break;
+		case "enterCave": gm.ev2.enterCave();break;
+		case "lookRoot" : gm.ev2.lookRoot();break;
+		case "talkRoot" : gm.ev2.talkRoot();break;
+		case "searchRoot": gm.ev2.searchRoot();break;
 		// Change Scene
 		
 		case "goScene1": gm.sChanger.showScene1();break;

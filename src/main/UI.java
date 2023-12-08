@@ -29,6 +29,12 @@ public class UI {
     JLabel lifeLabel[] = new JLabel[6];
     JPanel inventoryPanel;
     public JLabel swordLabel, shieldLabel, lanternLabel;
+    
+    //GAME OVER UI
+    public JLabel titleLabel;
+    public JLabel restartButton;
+    
+    
 
     public UI(GameManager gm) {
         this.gm = gm;
@@ -37,6 +43,7 @@ public class UI {
         createMainField();
         createPlayerField();
         generateScene();
+        createGameOverField();
         window.setVisible(true);
     }
 
@@ -102,8 +109,8 @@ public class UI {
     	// CREATE OBJECTS
     	final JLabel objectLabel = new JLabel();
     	objectLabel.setBounds(objX, objY, objWidth, objHeight);
- //	  	objectLabel.setOpaque(true);
-//  	objectLabel.setBackground(Color.blue);
+ 	  	//objectLabel.setOpaque(true);
+    	//objectLabel.setBackground(Color.blue);
     	ImageIcon objIcon = new ImageIcon(getClass().getClassLoader().getResource(objSource));
     	objectLabel.setIcon(objIcon);
     	
@@ -150,7 +157,7 @@ public class UI {
     	lifePanel.setLayout(new GridLayout(1,5));
     	window.add(lifePanel);
     	
-    	ImageIcon lifeIcon = new ImageIcon(getClass().getClassLoader().getResource("heart1.png"));
+    	ImageIcon lifeIcon = new ImageIcon(getClass().getClassLoader().getResource("main/heart1.png"));
     	Image image = lifeIcon.getImage().getScaledInstance(35,35,Image.SCALE_DEFAULT);
     	lifeIcon = new ImageIcon(image);
     	
@@ -170,43 +177,51 @@ public class UI {
     	
     	// CREATE ITEMS
     	swordLabel = new JLabel();
-    	ImageIcon swordIcon = new ImageIcon(getClass().getClassLoader().getResource("plain-dagger.png"));
+    	ImageIcon swordIcon = new ImageIcon(getClass().getClassLoader().getResource("main/plain-dagger.png"));
     	image = swordIcon.getImage().getScaledInstance(30,30,Image.SCALE_DEFAULT);
     	swordIcon = new ImageIcon(image);
     	swordLabel.setIcon(swordIcon);
     	inventoryPanel.add(swordLabel);
     	
     	shieldLabel = new JLabel();
-    	ImageIcon shieldIcon = new ImageIcon(getClass().getClassLoader().getResource("dragon-shield.png"));
+    	ImageIcon shieldIcon = new ImageIcon(getClass().getClassLoader().getResource("main/dragon-shield.png"));
     	image = shieldIcon.getImage().getScaledInstance(30,30,Image.SCALE_DEFAULT);
     	shieldIcon = new ImageIcon(image);
     	shieldLabel.setIcon(shieldIcon);
     	inventoryPanel.add(shieldLabel);
     	
     	lanternLabel = new JLabel();
-    	ImageIcon lanternIcon = new ImageIcon(getClass().getClassLoader().getResource("lantern-flame.png"));
+    	ImageIcon lanternIcon = new ImageIcon(getClass().getClassLoader().getResource("main/lantern-flame.png"));
     	image = lanternIcon.getImage().getScaledInstance(30,30,Image.SCALE_DEFAULT);
     	lanternIcon = new ImageIcon(image);
     	lanternLabel.setIcon(lanternIcon);
     	inventoryPanel.add(lanternLabel);
     	
     }
+    public void createGameOverField() {
+    	
+    }
     
     public void generateScene() {
     	// SCENE 1
-    	createBackground(1, "bg4.png");
-    	createObject(1, 440, 130, 200, 200, "hut.png","Look","Talk","Rest","lookHut", "talkHut","restHut");
-    	createObject(1, 120, 180, 100, 200, "dragon.png","Look","Talk","Attack","lookDragon","talkDragon", "attackDragon");
-    	createObject(1, 320, 190, 200, 200, "chest1.png","Look","Talk","Open","lookChest","talkChest","openChest");
-    	createArrowButton(1, 0, 150,50,50,"leftArrow.png", "goScene2");
+    	createBackground(1, "main/bg4.png");
+    	createObject(1, 440, 130, 200, 200, "main/hut.png","Look","Talk","Rest","lookHut", "talkHut","restHut");
+    	createObject(1, 120, 180, 100, 200, "main/dragon.png","Look","Talk","Attack","lookDragon","talkDragon", "attackDragon");
+    	createObject(1, 320, 190, 200, 200, "main/chest1.png","Look","Talk","Open","lookChest","talkChest","openChest");
+    	createArrowButton(1, 0, 150,50,50,"main/leftArrow.png", "goScene2");
     	bgPanel[1].add(bgLabel[1]);
     	
     	//SCENE 2
-    	createBackground(2, "caveoutside1.png");
-   	    createObject(2, 60, 100, 100, 300, "blank.png","Look","Talk","Enter","lookCave", "talkCave","enterCave");
-   	    createObject(2, 355, 250, 50, 50, "blank.png","Look","Talk","Search","lookRoot" ,"talkRoot","searchRoot");
+    	createBackground(2, "main/caveoutside1.png");
+   	    createObject(2, 60, 100, 100, 300, "main/blank.png","Look","Talk","Enter","lookCave", "talkCave","enterCave");
+   	    createObject(2, 240, 250, 90, 90, "main/blank.png","Look","Talk","Search","lookRoot" ,"talkRoot","searchRoot");
     
-    	createArrowButton(2, 650, 150, 50, 50, "rightArrow.png", "goScene1");
+    	createArrowButton(2, 650, 150, 50, 50, "main/rightArrow.png", "goScene1");
     	bgPanel[2].add(bgLabel[2]);
+    	
+    	//SCENE 3
+    	createBackground(3, "main/cave.jpg");    
+    	createArrowButton(3, 650, 150, 50, 50, "main/rightArrow.png", "goScene2");
+    	bgPanel[3].add(bgLabel[3]);
     }    
 }
