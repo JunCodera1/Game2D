@@ -32,7 +32,7 @@ public class UI {
     
     //GAME OVER UI
     public JLabel titleLabel;
-    public JLabel restartButton;
+    public JButton restartButton;
     
     
 
@@ -71,6 +71,7 @@ public class UI {
     	bgPanel[bgNum].setBounds(50, 50, 700, 350);
     	bgPanel[bgNum].setBackground(Color.black);
     	bgPanel[bgNum].setLayout(null);
+    	bgPanel[bgNum].setVisible(false);
     	window.add(bgPanel[bgNum]);
     	
     	bgLabel[bgNum] = new JLabel();
@@ -199,6 +200,24 @@ public class UI {
     	
     }
     public void createGameOverField() {
+    	
+    	titleLabel = new JLabel("",JLabel.CENTER);
+    	titleLabel.setBounds(200,150,400,200);
+    	titleLabel.setForeground(Color.red);
+    	titleLabel.setFont(new Font("Time New Roman",Font.PLAIN,70));
+    	titleLabel.setVisible(false);
+    	window.add(titleLabel);
+    	
+    	restartButton = new JButton();
+    	restartButton.setBounds(340,320,120, 50);
+    	restartButton.setBorder(null);
+    	restartButton.setBackground(null);
+    	restartButton.setForeground(Color.white);
+    	restartButton.setFocusPainted(false);
+    	restartButton.addActionListener(gm.aHandler);
+    	restartButton.setActionCommand("restart");
+    	restartButton.setVisible(false);
+    	window.add(restartButton);
     	
     }
     

@@ -33,14 +33,14 @@ public class Event01 {
 		if(gm.player.hasShield == 0) {
 			if(gm.player.hasSword == 0) {
 				if(gm.player.playerLife != 1) {
-					gm.ui.messageText.setText("Dragon : Hey, don't be stupid!\n(The guard hits you back and your life decreases by 1");
+					gm.ui.messageText.setText("Dragon : Hey, don't be stupid!\n(The guard hits you back and your life decreases by 1)");
 				    gm.player.playerLife--;
 			//	    gm.player.updatePlayerStatus();
 				}
 				else if(gm.player.playerLife == 1) {
 					gm.ui.messageText.setText("Dragon: What a fool.");
 					gm.player.playerLife--;
-		//			gm.player.updatePlayerStatus();
+					gm.sChanger.showGameOverScene(1);
 				}
 			}
 			else if(gm.player.hasSword == 1) {
