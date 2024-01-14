@@ -2,10 +2,14 @@ package main;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.FontFormatException;
+import java.awt.GraphicsEnvironment;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.File;
+import java.io.IOException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -23,6 +27,7 @@ public class UI {
     public JTextArea messageText;
     JPanel bgPanel[] = new JPanel[10];
     JLabel bgLabel[] = new JLabel[10];
+    Font pixelMplus;
     
     //Player UI
     JPanel lifePanel;
@@ -30,25 +35,57 @@ public class UI {
     JPanel inventoryPanel;
     public JLabel swordLabel, shieldLabel, lanternLabel;
     
+    
     //GAME OVER UI
     public JLabel titleLabel;
     public JButton restartButton;
     
+    //MONSTER UI
+	public Object bossHealthBar;
+    public String bossImage = "main/bossEye.png";
     
 
     public UI(GameManager gm) {
         this.gm = gm;
-        
-        // Di chuyển window.setVisible(true) xuống dưới
-        createMainField();
+
+        // Load the custom font
+        Font pixelMplus = loadCustomFont();
+
+        // Move window.setVisible(true) down to the end
+        createMainField(pixelMplus);
         createPlayerField();
         generateScene();
         createGameOverField();
         window.setVisible(true);
     }
 
-    void createMainField() {
-        window = new JFrame("Game Window");
+    public Font loadCustomFont() {
+    	try {
+            // Load a custom font from your project folder
+            File fontFile = new File("font/MadouFutoMaruGothic-d9Xo7.ttf");
+
+            if (!fontFile.isFile()) {
+                // Handle the case where the font file is not found
+                System.err.println("Font file not found: " + fontFile.getAbsolutePath());
+                return new Font("Book Antiqua", Font.PLAIN, 26);
+            }
+
+            Font customFont = Font.createFont(Font.TRUETYPE_FONT, fontFile).deriveFont(30f);
+
+            // Register the font with GraphicsEnvironment
+            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+            ge.registerFont(customFont);
+
+            return customFont;
+        } catch (IOException | FontFormatException e) {
+            e.printStackTrace();
+            // Handle the exception or return a default font
+            return new Font("Book Antiqua", Font.PLAIN, 26);
+        }
+    }
+
+    private void createMainField(Font pixelMplus) {
+        window = new JFrame("Dragon's Adventure");
         window.setSize(800, 600);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setLayout(null);
@@ -59,9 +96,11 @@ public class UI {
         messageText.setBackground(Color.black);
         messageText.setForeground(Color.white);
         messageText.setEditable(false);
-        messageText.setFont(new Font("Book Antiqua", Font.PLAIN, 26));
 
-        // Thêm JTextArea vào JFrame
+        // Set the custom font for messageText
+        messageText.setFont(pixelMplus);
+
+        // Add JTextArea to JFrame
         window.add(messageText);
     }
     
@@ -83,7 +122,7 @@ public class UI {
     }
     
     
-    void createObject(int bgNum, int objX, int objY, int objWidth, int objHeight,
+    public void createObject(final int bgNum, int objX, int objY, int objWidth, int objHeight,
     		String objSource, String choice1Name, String choice2Name, String choice3Name,
     		String choice1Command, String choice2Command, String choice3Command){
     	// CREATE POP MENU
@@ -111,7 +150,7 @@ public class UI {
     	final JLabel objectLabel = new JLabel();
     	objectLabel.setBounds(objX, objY, objWidth, objHeight);
  	  	//objectLabel.setOpaque(true);
-    	//objectLabel.setBackground(Color.blue);
+    	objectLabel.setBackground(Color.blue);
     	ImageIcon objIcon = new ImageIcon(getClass().getClassLoader().getResource(objSource));
     	objectLabel.setIcon(objIcon);
     	
@@ -122,6 +161,7 @@ public class UI {
 			public void mousePressed(MouseEvent e) {
 				if(SwingUtilities.isRightMouseButton(e)) {
 					popMenu.show(objectLabel, e.getX(), e.getY());
+					bgPanel[bgNum].repaint();
 				}
 			}
 
@@ -135,7 +175,10 @@ public class UI {
     	
     	bgPanel[bgNum].add(objectLabel);
     	bgPanel[bgNum].add(bgLabel[bgNum]);
+    	bgPanel[bgNum].validate();
+    	
     }
+    
     public void createArrowButton(int bgNum,int x, int y, int width, int height ,String arrowFileName, String command) {
     	ImageIcon arrowIcon = new ImageIcon(getClass().getClassLoader().getResource(arrowFileName));
     	JButton arrowButton = new JButton();
@@ -199,6 +242,7 @@ public class UI {
     	inventoryPanel.add(lanternLabel);
     	
     }
+  
     public void createGameOverField() {
     	
     	titleLabel = new JLabel("",JLabel.CENTER);
@@ -220,27 +264,63 @@ public class UI {
     	window.add(restartButton);
     	
     }
+ 
     
     public void generateScene() {
     	// SCENE 1
     	createBackground(1, "main/bg4.png");
     	createObject(1, 440, 130, 200, 200, "main/hut.png","Look","Talk","Rest","lookHut", "talkHut","restHut");
-    	createObject(1, 120, 180, 100, 200, "main/dragon.png","Look","Talk","Attack","lookDragon","talkDragon", "attackDragon");
-    	createObject(1, 320, 190, 200, 200, "main/chest1.png","Look","Talk","Open","lookChest","talkChest","openChest");
+    	createObject(1, 120, 235, 90, 90, "main/dragon.png","Look","Talk","Attack","lookDragon","talkDragon", "attackDragon");
+    	createObject(1, 320, 240, 100, 100, "main/chest1.png","Look","Talk","Open","lookChest","talkChest","openChest");
+    	createObject(1, 210, 250, 80,90, "main/cat.png", "Look", "Talk", "Touch", "lookCat", "talkCat", "touchCat");
     	createArrowButton(1, 0, 150,50,50,"main/leftArrow.png", "goScene2");
     	bgPanel[1].add(bgLabel[1]);
     	
     	//SCENE 2
     	createBackground(2, "main/caveoutside1.png");
-   	    createObject(2, 60, 100, 100, 300, "main/blank.png","Look","Talk","Enter","lookCave", "talkCave","enterCave");
+   	    createObject(2, 60, 170, 130, 130, "main/blank.png","Look","Talk","Enter","lookCave", "talkCave","enterCave");
    	    createObject(2, 240, 250, 90, 90, "main/blank.png","Look","Talk","Search","lookRoot" ,"talkRoot","searchRoot");
-    
+    	createObject(2, 440, 270, 70,90, "main/cat.png", "Meow", "Curious", "Recumbent", "meowCat", "curiousCat", "recumbentCat");
+    	createObject(2, 480, 250, 80,100, "main/dragon.png", "Curious", "Talk", "Attack", "curiousDragon", "talkDragon", "attackDragon");
     	createArrowButton(2, 650, 150, 50, 50, "main/rightArrow.png", "goScene1");
     	bgPanel[2].add(bgLabel[2]);
     	
     	//SCENE 3
-    	createBackground(3, "main/cave.jpg");    
+    	createBackground(3, "main/cave.jpg");
+    	createObject(3, 200, 260, 100,90, "main/slime.png", "Attack", "Talk", "Look", "attackSlime", "talkSlime", "lookSlime");
+    	createObject(3, 440, 285, 75,90, "main/cat.png", "Scared", "Meow","Look", "scaredCat", "meowCat", "lookCat");
+    	createObject(3, 480, 265, 100,100, "main/dragon.png", "Attack", "Talk", "Look", "attackDragon1", "talkDragon1", "lookDragon1");
     	createArrowButton(3, 650, 150, 50, 50, "main/rightArrow.png", "goScene2");
+    	createArrowButton(3, 0, 150, 50, 50,"main/leftArrow.png", "goScene4");
     	bgPanel[3].add(bgLabel[3]);
-    }    
+    	
+    	//SCENE 4 	
+    	createBackground(4, "main/caveinside2.png");
+    	createObject(4, 440, 285, 75,90, "main/cat.png", "Scared", "Hide","", "scaredCat1", "hideCat", "");
+    	createObject(4, 480, 265, 100,100, "main/dragon.png", "Heal", "Talk", "", "healDragon", "talkDragon2", "");
+    	createObject(4, 100, 285 , 70,70,"main/lightrock.png", "Summon","","","summonBoss","","");
+    	createArrowButton(4,650,150,50,50,"main/rightArrow.png", "goScene3");
+    	createArrowButton(4,0,150,50,50,"main/leftArrow.png", "goScene5");
+    	bgPanel[4].add(bgLabel[4]);
+    	
+    	//SCENE 5
+    	createBackground(5, "main/caveexit.png");
+    	createArrowButton(5,650,150,50,50,"main/rightArrow.png", "goScene4");
+    	createObject(5, 440, 285, 75,90, "main/cat.png", "Scared", "Meow","Look", "scaredCat2", "meowCat2", "lookCat2");
+    	createObject(5, 480, 265, 100,100, "main/dragon.png", "Attack", "Talk", "Look", "attackDragon3", "talkDragon3", "lookDragon3");
+    	createArrowButton(5,0,150,50,50,"main/leftArrow.png", "goScene6");
+    	bgPanel[5].add(bgLabel[5]);
+    	
+    	//SCENE 6
+    	createBackground(6, "main/caveout.jpg");
+    	createObject(6, 440, 285, 75,90, "main/cat.png", "Scared", "Meow","Look", "scaredCat3", "meowCat3", "lookCat3");
+    	createObject(6, 480, 265, 100,100, "main/dragon.png", "Attack", "Talk", "Look", "attackDragon4", "talkDragon4", "lookDragon4");
+    	createObject(6, 50, 190, 200, 200, "main/door.png", "Exit Game","","","exitDoor","", "");
+    	createArrowButton(6, 650, 150, 50, 50, "main/rightArrow.png","goScene5");
+    	bgPanel[6].add(bgLabel[6]);
+    	
+    	
+    }
+
+
 }

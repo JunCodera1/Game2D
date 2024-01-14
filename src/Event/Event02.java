@@ -15,7 +15,7 @@ public class Event02 {
 	}
 	public void enterCave() {
 		if(gm.player.hasLantern == 0) {
-			gm.ui.messageText.setText("It's too dark to enter.");
+			gm.ui.messageText.setText("It's too dark to enter.\n(Look at the pile of rocks...)");
 		}
 		else {
 			gm.sChanger.showScene3();
@@ -35,5 +35,20 @@ public class Event02 {
 			gm.player.updatePlayerStatus();
 		}
 		
+	}
+	public void meowCat() {
+		gm.ui.messageText.setText("Cat: Meow");
+	}
+	public void curiousCat() {
+		gm.ui.messageText.setText("Cat: Meow?(The cat approached the pile of rocks)");
+	}
+	public void recumbentCat() {
+		gm.ui.messageText.setText("Cat: ...\n(The cat lies on its left side)");
+	}
+	public void curiousDragon() {
+		gm.ui.messageText.setText("Dragon: The cat seemed curious about the pile of rocks");
+	}
+	public void talkDragon() {
+		gm.ui.messageText.setText("Dragon: ");
 	}
 }

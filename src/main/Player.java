@@ -10,6 +10,9 @@ public class Player {
 	public int hasShield;
 	public int hasLantern;
 	
+	public int damage;
+	
+	
 	
 	public Player(GameManager gm) {
 		this.gm = gm;
@@ -17,11 +20,12 @@ public class Player {
 	
 	public void setPlayerDefaultStatus() {
 		playerMaxLife = 5;
-		playerLife = 3;
+		playerLife = 5;
 		hasSword = 0;
 		hasShield = 0;
 		hasLantern = 0;
 		updatePlayerStatus();
+		
 	}
 	public void updatePlayerStatus() {
 		// REMOVE ALL LIFE ICON

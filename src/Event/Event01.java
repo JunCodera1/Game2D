@@ -69,4 +69,14 @@ public class Event01 {
 			gm.ui.messageText.setText("There's nothing inside...");
 		}
 	}
+	public void touchCat() {
+		gm.ui.messageText.setText("Dragon: Good kitty :>");
+	}
+	public void lookCat() {
+		gm.ui.messageText.setText("Dragon: The cat is almost as big as me");
+	}
+	public void talkCat() {
+		gm.ui.messageText.setText("Cat: ...");
+	}
+	
 }
