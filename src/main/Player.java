@@ -24,6 +24,7 @@ public class Player {
 		hasSword = 0;
 		hasShield = 0;
 		hasLantern = 0;
+		damage = 10;
 		updatePlayerStatus();
 		
 	}
@@ -62,6 +63,14 @@ public class Player {
 		}
 
 		
+	}
+
+	public String getName() {
+		return "Dragon";
+	}
+
+	public int getHealth() {
+		return playerLife;
 	}
 
 }

@@ -22,12 +22,14 @@ import javax.swing.JTextArea;
 import javax.swing.SwingUtilities;
 
 public class UI {
+	// MAIN UI
     GameManager gm;
     JFrame window;
     public JTextArea messageText;
     JPanel bgPanel[] = new JPanel[10];
     JLabel bgLabel[] = new JLabel[10];
     Font pixelMplus;
+    public JButton choiceB1,choiceB2;
     
     //Player UI
     JPanel lifePanel;
@@ -95,13 +97,31 @@ public class UI {
         messageText.setBounds(50, 400, 700, 150);
         messageText.setBackground(Color.black);
         messageText.setForeground(Color.white);
-        messageText.setEditable(false);
-
-        // Set the custom font for messageText
         messageText.setFont(pixelMplus);
-
-        // Add JTextArea to JFrame
+        messageText.setEditable(false);
+        messageText.setLineWrap(true);
+        messageText.setWrapStyleWord(true);
         window.add(messageText);
+        
+        choiceB1 = new JButton("Add to your wishlist");
+        choiceB1.setBounds(190,320,200,50);
+        choiceB1.setBackground(new Color(39,67,89));
+        choiceB1.setForeground(new Color(97,195,240));
+        choiceB1.setFocusPainted(false);
+        choiceB1.setFont(pixelMplus);
+        choiceB1.setVisible(false);
+        window.add(choiceB1);
+        
+        choiceB2 = new JButton("No way!");
+        choiceB2.setBounds(400, 320, 200, 50);
+        choiceB2.setBackground(new Color(39,67,89));
+        choiceB2.setFocusPainted(false);
+        choiceB2.setFont(pixelMplus);
+        choiceB2.addActionListener(gm.aHandler);
+        choiceB2.setActionCommand("noway");
+        choiceB2.setVisible(false);
+        window.add(choiceB2);
+
     }
     
     
@@ -117,8 +137,10 @@ public class UI {
     	bgLabel[bgNum].setBounds(0, 0, 700, 350);
     	
     	ImageIcon bgIcon = new ImageIcon(getClass().getClassLoader().getResource(source));
+    	Image image = bgIcon.getImage().getScaledInstance(700, 350, Image.SCALE_DEFAULT); // Adjust the size to the label
+		bgIcon = new ImageIcon(image);
     	bgLabel[bgNum].setIcon(bgIcon);
-    	
+//		bgPanel[num].add(bgLabel[num]);  DON'T ADD Background image to the panel yet!!!!
     }
     
     
@@ -150,8 +172,9 @@ public class UI {
     	final JLabel objectLabel = new JLabel();
     	objectLabel.setBounds(objX, objY, objWidth, objHeight);
  	  	//objectLabel.setOpaque(true);
-    	objectLabel.setBackground(Color.blue);
+    	//objectLabel.setBackground(Color.blue);
     	ImageIcon objIcon = new ImageIcon(getClass().getClassLoader().getResource(objSource));
+    
     	objectLabel.setIcon(objIcon);
     	
     	objectLabel.addMouseListener(new MouseListener() {
@@ -181,6 +204,9 @@ public class UI {
     
     public void createArrowButton(int bgNum,int x, int y, int width, int height ,String arrowFileName, String command) {
     	ImageIcon arrowIcon = new ImageIcon(getClass().getClassLoader().getResource(arrowFileName));
+    	Image image = arrowIcon.getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+		arrowIcon = new ImageIcon(image);
+		
     	JButton arrowButton = new JButton();
     	arrowButton.setBounds(x, y, width, height);
     	arrowButton.setBackground(null);
@@ -269,10 +295,10 @@ public class UI {
     public void generateScene() {
     	// SCENE 1
     	createBackground(1, "main/bg4.png");
-    	createObject(1, 440, 130, 200, 200, "main/hut.png","Look","Talk","Rest","lookHut", "talkHut","restHut");
-    	createObject(1, 120, 235, 90, 90, "main/dragon.png","Look","Talk","Attack","lookDragon","talkDragon", "attackDragon");
-    	createObject(1, 320, 240, 100, 100, "main/chest1.png","Look","Talk","Open","lookChest","talkChest","openChest");
-    	createObject(1, 210, 250, 80,90, "main/cat.png", "Look", "Talk", "Touch", "lookCat", "talkCat", "touchCat");
+    	createObject(1, 440, 120, 200, 200, "main/hut.png","Look","Talk","Rest","lookHut", "talkHut","restHut");
+    	createObject(1, 120, 225, 90, 90, "main/dragon.png","Look","Talk","Attack","lookDragon","talkDragon", "attackDragon");
+    	createObject(1, 320, 230, 100, 100, "main/chest1.png","Look","Talk","Open","lookChest","talkChest","openChest");
+    	createObject(1, 210, 240, 80,90, "main/cat.png", "Look", "Talk", "Touch", "lookCat", "talkCat", "touchCat");
     	createArrowButton(1, 0, 150,50,50,"main/leftArrow.png", "goScene2");
     	bgPanel[1].add(bgLabel[1]);
     	

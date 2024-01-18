@@ -36,6 +36,7 @@ public class ActionHandler implements ActionListener {
 		case "searchRoot": gm.ev2.searchRoot();break;
 		       
 		       // EVENT 3
+		case "noway": gm.sChanger.showGameOverScene(3); gm.ui.messageText.setText("What a fool...");break;
 		case "attackSlime": gm.ev3.attackSlime();break;
 		case "lookSlime": gm.ev3.lookSlime();break;
 		case "talkSlime": gm.ev3.lookSlime(); break;

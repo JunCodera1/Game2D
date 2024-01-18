@@ -8,15 +8,15 @@ import Event.Event01;
 import Event.Event02;
 import Event.Event3;
 import Event.Event4;
+import Event.Event6;
 
 public class GameManager {
     ActionHandler aHandler = new ActionHandler(this);
     public UI ui = new UI(this);
     public Player player = new Player(this);
     public SceneChanger sChanger = new SceneChanger(this);
-    JProgressBar bossHealthBar = new JProgressBar();
 	public GameManager gameManager;
-    public Monster bossMonster = new Monster(this, bossHealthBar);
+    public Monster bossMonster = new Monster(this);
     Music music = new Music();
     SE se  = new SE();
 

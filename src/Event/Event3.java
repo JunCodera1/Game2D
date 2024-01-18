@@ -8,10 +8,10 @@ public class Event3 {
 	   this.gm = gm;
    }
    public void attackSlime() {
-	   
+	   if(gm.player.hasSword > 0) {
 	   try {
 	        if (gm.bossMonster.hpSlime > 0) {
-	            gm.bossMonster.hpSlime -= gm.bossMonster.damage;
+	            gm.bossMonster.hpSlime -= gm.player.damage;
 	            gm.bossMonster.updateHealthBar();
                 gm.ui.messageText.setText("Dragon: Simpler than i imagined\n(slime loses blood)\n" 
 	            +"HP Slime: "  
@@ -24,6 +24,7 @@ public class Event3 {
 	    } catch (Exception e) {
 	        e.printStackTrace();
 	    }
+	   }
    }
    public void talkSlime() {
 	   gm.ui.messageText.setText("Slime :...");

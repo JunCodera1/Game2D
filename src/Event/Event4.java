@@ -27,25 +27,23 @@ public class Event4 {
 		}
       }
       public void attackBoss() {
+    	  if(gm.player.hasSword > 0) {
     	    try {
     	        if (gm.bossMonster.hpBoss > 0) {
-    	            gm.bossMonster.hpBoss -= gm.bossMonster.damage;
+    	            gm.bossMonster.hpBoss -= gm.player.damage;
     	            gm.bossMonster.updateHealthBar();
 
     	            if (gm.bossMonster.hpBoss <= 0) {
     	                gm.ui.messageText.setText("Dragon: Boss has been defeated!");
-    	                defeatBoss(); // Gọi phương thức để xử lý sau khi đánh bại boss
     	            }
     	        }
     	    } catch (Exception e) {
     	        e.printStackTrace();
     	    }
     	}
+      }
 
-    	private void defeatBoss() {
-    	    gm.ui.createObject(4, 100, -100, 600, 600, "main\\blank.png", "", "", "", "", "", null);
-    	   
-    	}
+    	
 
 
 	public void summonBoss() {
