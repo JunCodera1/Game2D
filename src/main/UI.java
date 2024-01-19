@@ -29,7 +29,6 @@ public class UI {
     JPanel bgPanel[] = new JPanel[10];
     JLabel bgLabel[] = new JLabel[10];
     Font pixelMplus;
-    public JButton choiceB1,choiceB2;
     
     //Player UI
     JPanel lifePanel;
@@ -63,25 +62,21 @@ public class UI {
 
     public Font loadCustomFont() {
     	try {
-            // Load a custom font from your project folder
             File fontFile = new File("font/MadouFutoMaruGothic-d9Xo7.ttf");
 
             if (!fontFile.isFile()) {
-                // Handle the case where the font file is not found
                 System.err.println("Font file not found: " + fontFile.getAbsolutePath());
                 return new Font("Book Antiqua", Font.PLAIN, 26);
             }
 
             Font customFont = Font.createFont(Font.TRUETYPE_FONT, fontFile).deriveFont(30f);
 
-            // Register the font with GraphicsEnvironment
             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
             ge.registerFont(customFont);
 
             return customFont;
         } catch (IOException | FontFormatException e) {
             e.printStackTrace();
-            // Handle the exception or return a default font
             return new Font("Book Antiqua", Font.PLAIN, 26);
         }
     }
@@ -103,24 +98,6 @@ public class UI {
         messageText.setWrapStyleWord(true);
         window.add(messageText);
         
-        choiceB1 = new JButton("Add to your wishlist");
-        choiceB1.setBounds(190,320,200,50);
-        choiceB1.setBackground(new Color(39,67,89));
-        choiceB1.setForeground(new Color(97,195,240));
-        choiceB1.setFocusPainted(false);
-        choiceB1.setFont(pixelMplus);
-        choiceB1.setVisible(false);
-        window.add(choiceB1);
-        
-        choiceB2 = new JButton("No way!");
-        choiceB2.setBounds(400, 320, 200, 50);
-        choiceB2.setBackground(new Color(39,67,89));
-        choiceB2.setFocusPainted(false);
-        choiceB2.setFont(pixelMplus);
-        choiceB2.addActionListener(gm.aHandler);
-        choiceB2.setActionCommand("noway");
-        choiceB2.setVisible(false);
-        window.add(choiceB2);
 
     }
     
@@ -137,10 +114,10 @@ public class UI {
     	bgLabel[bgNum].setBounds(0, 0, 700, 350);
     	
     	ImageIcon bgIcon = new ImageIcon(getClass().getClassLoader().getResource(source));
-    	Image image = bgIcon.getImage().getScaledInstance(700, 350, Image.SCALE_DEFAULT); // Adjust the size to the label
+    	Image image = bgIcon.getImage().getScaledInstance(700, 350, Image.SCALE_DEFAULT);
 		bgIcon = new ImageIcon(image);
     	bgLabel[bgNum].setIcon(bgIcon);
-//		bgPanel[num].add(bgLabel[num]);  DON'T ADD Background image to the panel yet!!!!
+
     }
     
     
@@ -211,11 +188,11 @@ public class UI {
     	arrowButton.setBounds(x, y, width, height);
     	arrowButton.setBackground(null);
     	arrowButton.setContentAreaFilled(false);
-    	arrowButton.setFocusPainted(false);
+    	arrowButton.setFocusPainted(true);
     	arrowButton.setIcon(arrowIcon);
     	arrowButton.addActionListener(gm.aHandler);
     	arrowButton.setActionCommand(command);
-    	arrowButton.setBorderPainted(false);
+    	arrowButton.setBorderPainted(true);
     	
     	
     	bgPanel[bgNum].add(arrowButton);
@@ -275,7 +252,7 @@ public class UI {
     	titleLabel.setBounds(200,150,400,200);
     	titleLabel.setForeground(Color.red);
     	titleLabel.setFont(new Font("Time New Roman",Font.PLAIN,70));
-    	titleLabel.setVisible(false);
+    	titleLabel.setVisible(true);
     	window.add(titleLabel);
     	
     	restartButton = new JButton();

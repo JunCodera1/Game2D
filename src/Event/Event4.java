@@ -27,6 +27,7 @@ public class Event4 {
 		}
       }
       public void attackBoss() {
+    	  
     	  if(gm.player.hasSword > 0) {
     	    try {
     	        if (gm.bossMonster.hpBoss > 0) {
@@ -41,13 +42,13 @@ public class Event4 {
     	        e.printStackTrace();
     	    }
     	}
+    	  else {
+    		  gm.ui.messageText.setText("You are not armed yet!");
+    	  }
       }
 
-    	
-
-
 	public void summonBoss() {
-	    gm.ui.messageText.setText("");
+	    
 		gm.ui.createObject(4, 100, 100 , 300,300,"main\\bossEye.png", "Attack","","","attackBoss","","");		
 	}
 

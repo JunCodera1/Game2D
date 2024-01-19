@@ -21,9 +21,13 @@ public class Event3 {
 	                gm.ui.messageText.setText("(slime has been defeated)");
 	            }
 	        }
+	        
 	    } catch (Exception e) {
 	        e.printStackTrace();
 	    }
+	   }
+	   else {
+		   gm.ui.messageText.setText("You are not armed yet!");
 	   }
    }
    public void talkSlime() {

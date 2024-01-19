@@ -1,68 +1,37 @@
 package main;
 
-import java.io.IOException;
 import java.net.URL;
-import javax.sound.sampled.*;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 
 public class Music {
+    Clip clip;
 
-    private Clip clip;
-
-    public void setFile(URL fileURL) throws UnsupportedAudioFileException, LineUnavailableException, IOException {
-        AudioInputStream sound = AudioSystem.getAudioInputStream(fileURL);
-        clip = AudioSystem.getClip();
-        clip.open(sound);
-    }
-
-    public void play() {
-        if (clip != null) {
-            clip.setFramePosition(0);
-            clip.start();
+    public void setFile(URL name) {
+        try {
+            AudioInputStream sound = AudioSystem.getAudioInputStream(name);
+            clip = AudioSystem.getClip();
+            clip.open(sound);
+        } catch (Exception e) {
+           e.printStackTrace();
+            System.out.println("Error loading audio file: " + e.getMessage());
         }
     }
 
-    public void loop() {
-        if (clip != null) {
-            clip.loop(Clip.LOOP_CONTINUOUSLY);
-        }
+    public void play(URL name) {
+    	
+        clip.setFramePosition(0);
+        clip.start();
     }
 
-    public void stop() {
-        if (clip != null && clip.isRunning()) {
-            clip.stop();
-        }
+    public void loop(URL name) {
+    	
+        clip.loop(Clip.LOOP_CONTINUOUSLY);
     }
 
-    public void close() {
-        if (clip != null) {
-            clip.close();
-        }
-    }
-
-    public void addCompletionListener(CompletionListener listener) {
-        if (clip != null) {
-            clip.addLineListener(listener);
-        }
-    }
-
-    public void setVolume(float volume) {
-        if (clip != null) {
-            if (clip.isControlSupported(FloatControl.Type.MASTER_GAIN)) {
-                FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-                gainControl.setValue(volume);
-            }
-        }
-    }
-
-    public float getVolume() {
-        if (clip != null && clip.isControlSupported(FloatControl.Type.MASTER_GAIN)) {
-            FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-            return gainControl.getValue();
-        }
-        return 0.0f;
-    }
-
-    public interface CompletionListener extends LineListener {
-        void onComplete();
+    public void stop(URL name) {
+    	
+        clip.stop();
     }
 }

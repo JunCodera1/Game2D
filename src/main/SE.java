@@ -11,6 +11,7 @@ public class SE {
 	Clip clip;
 	
 	public void setFile(URL name) {
+		
 		try {
 			AudioInputStream sound = AudioSystem.getAudioInputStream(name);
 			clip = AudioSystem.getClip();
@@ -18,6 +19,21 @@ public class SE {
 		}catch(Exception x) {
 				
 		}
+	}
+	
+	public void play(URL name) {
+		
+		
+	}
+	
+	public void loop(URL name) {
+		
+		
+	}
+	
+	public void stop(URL name) {
+		
+		clip.stop();
 	}
 }
 
