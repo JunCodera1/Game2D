@@ -27,21 +27,21 @@ public class GameManager {
     
     
     public URL fieldMusic1 = getClass().getClassLoader().getResource("audio/theme1.wav");
-    public URL fieldMusic2 = getClass().getClassLoader().getResource("");
+    public URL fieldMusic2 = getClass().getClassLoader().getResource("audio/fieldSound2.wav");
     public URL fieldMusic3 = getClass().getClassLoader().getResource("");
     public URL fieldMusic4 = getClass().getClassLoader().getResource("");
     public URL fieldMusic5 = getClass().getClassLoader().getResource("");
     public URL fieldMusic6 = getClass().getClassLoader().getResource("");
 
     
-    public URL deathSound = getClass().getClassLoader().getResource("audio//dragonMinHP.mp3");
-    public URL hitSound = getClass().getClassLoader().getResource("audio//dragonLostHP.mp3");
-    public URL healSound = getClass().getClassLoader().getResource("audio//heal.mp3");
-    public URL itemSound = getClass().getClassLoader().getResource("audio//FindWeapon.mp3");
-    public URL enterSound = getClass().getClassLoader().getResource("audio//cavesound.mp3");
-    public URL dragon_01 = getClass().getClassLoader().getResource("audio//talkDragon.mp3");
+    public URL deathSound = getClass().getClassLoader().getResource("audio//dragonMinHP.wav");
+    public URL hitSound = getClass().getClassLoader().getResource("audio//dragonLostHP.wav");
+    public URL healSound = getClass().getClassLoader().getResource("audio//heal.wav");
+    public URL itemSound = getClass().getClassLoader().getResource("audio//FindWeapon.wav");
+    public URL enterSound = getClass().getClassLoader().getResource("audio//enterSound.wav");
+    public URL dragon_01 = getClass().getClassLoader().getResource("audio//talkDragon.wav");
     public URL dragon_02 = getClass().getClassLoader().getResource("audio//");
-    public URL dragon_03 = getClass().getClassLoader().getResource("audio//GoodKitty.mp3");
+    public URL dragon_03 = getClass().getClassLoader().getResource("audio//GoodKitty.wav");
     public URL dragon_04 = getClass().getClassLoader().getResource("audio//");
     public URL cat_01 = getClass().getClassLoader().getResource("");
     public URL cat_02 = getClass().getClassLoader().getResource("");

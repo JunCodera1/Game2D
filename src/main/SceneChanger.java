@@ -15,6 +15,10 @@ public class SceneChanger {
 		gm.ui.bgPanel[6].setVisible(false);
 
 		gm.ui.messageText.setText("Let's defeat the Demon and save the world\n(Right click on any object to move)");
+		
+		gm.stopMusic(gm.currentMusic);
+		gm.currentMusic = gm.fieldMusic1;
+		gm.playMusic(gm.currentMusic);
 	}
 	public void showScene2() {
 		gm.ui.bgPanel[1].setVisible(false);
@@ -26,8 +30,13 @@ public class SceneChanger {
 
 	
 		gm.ui.messageText.setText("You come the cave outside!");
+		
+		gm.stopMusic(gm.currentMusic);
+		gm.currentMusic = gm.fieldMusic2;
+		gm.playMusic(gm.currentMusic);
 	}
 	public void showScene3() {
+		gm.playSE(gm.enterSound);
 		gm.ui.bgPanel[1].setVisible(false);
 		gm.ui.bgPanel[2].setVisible(false);
 		gm.ui.bgPanel[3].setVisible(true);
@@ -75,6 +84,9 @@ public class SceneChanger {
 		gm.ui.titleLabel.setText("YOU DIED");
 		gm.ui.restartButton.setVisible(true);
 		gm.ui.restartButton.setText("Click here to restart!");
+		
+		gm.stopMusic(gm.currentMusic);
+		gm.playSE(gm.deathSound);
 	}
 	public void existGameOverScreen() {
 		gm.ui.titleLabel.setVisible(true);

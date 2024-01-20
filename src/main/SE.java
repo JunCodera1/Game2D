@@ -21,19 +21,20 @@ public class SE {
 		}
 	}
 	
-	public void play(URL name) {
-		
-		
-	}
-	
-	public void loop(URL name) {
-		
-		
-	}
-	
-	public void stop(URL name) {
-		
-		clip.stop();
-	}
+    public void play(URL name) {
+    	
+        clip.setFramePosition(0);
+        clip.start();
+    }
+
+    public void loop(URL name) {
+    	
+        clip.loop(Clip.LOOP_CONTINUOUSLY);
+    }
+
+    public void stop(URL name) {
+    	
+        clip.stop();
+    }
 }
 
