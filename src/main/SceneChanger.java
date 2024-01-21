@@ -46,6 +46,10 @@ public class SceneChanger {
 
 
 		gm.ui.messageText.setText("You enter the cave. What is waiting for you inside...\n");
+		
+		gm.stopMusic(gm.currentMusic);
+		gm.currentMusic = gm.fieldMusic3;
+		gm.playMusic(gm.currentMusic);
 	}
 	public void showScene4() {
 		gm.ui.bgPanel[1].setVisible(false);
@@ -56,6 +60,10 @@ public class SceneChanger {
 		gm.ui.bgPanel[6].setVisible(false);
 		
 		gm.ui.messageText.setText("Dragon: It's too dark here\nCat: Meow\n(Something is moving)");
+		
+		gm.stopMusic(gm.currentMusic);
+		gm.currentMusic = gm.fieldMusic4;
+		gm.playMusic(gm.currentMusic);
 	}
 	public void showScene5() {
 		gm.ui.bgPanel[1].setVisible(false);
@@ -66,6 +74,9 @@ public class SceneChanger {
 		gm.ui.bgPanel[6].setVisible(false);
 		
 		gm.ui.messageText.setText("Dragon: Looks like the exit\n Cat: Meow Meow!!!");
+		gm.stopMusic(gm.currentMusic);
+		gm.currentMusic = gm.fieldMusic5;
+		gm.playMusic(gm.currentMusic);
 	}
 	public void showScene6() {
 		gm.ui.bgPanel[1].setVisible(false);
@@ -86,7 +97,7 @@ public class SceneChanger {
 		gm.ui.restartButton.setText("Click here to restart!");
 		
 		gm.stopMusic(gm.currentMusic);
-		gm.playSE(gm.deathSound);
+		gm.playMusic(gm.gameOver);
 	}
 	public void existGameOverScreen() {
 		gm.ui.titleLabel.setVisible(true);

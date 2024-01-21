@@ -28,13 +28,14 @@ public class GameManager {
     
     public URL fieldMusic1 = getClass().getClassLoader().getResource("audio/theme1.wav");
     public URL fieldMusic2 = getClass().getClassLoader().getResource("audio/fieldSound2.wav");
-    public URL fieldMusic3 = getClass().getClassLoader().getResource("");
-    public URL fieldMusic4 = getClass().getClassLoader().getResource("");
-    public URL fieldMusic5 = getClass().getClassLoader().getResource("");
-    public URL fieldMusic6 = getClass().getClassLoader().getResource("");
+    public URL fieldMusic3 = getClass().getClassLoader().getResource("audio/fieldSound3.wav");
+    public URL fieldMusic4 = getClass().getClassLoader().getResource("audio/fieldSound4.wav");
+    public URL fieldMusic5 = getClass().getClassLoader().getResource("audio/fieldSound5.wav");
+    public URL fieldMusic6 = getClass().getClassLoader().getResource("audio/fieldSound6.wav");
+    public URL bossMusic = getClass().getClassLoader().getResource("audio/Boss1.wav");
 
     
-    public URL deathSound = getClass().getClassLoader().getResource("audio//dragonMinHP.wav");
+    public URL gameOver = getClass().getClassLoader().getResource("audio//GameOver.wav");
     public URL hitSound = getClass().getClassLoader().getResource("audio//dragonLostHP.wav");
     public URL healSound = getClass().getClassLoader().getResource("audio//heal.wav");
     public URL itemSound = getClass().getClassLoader().getResource("audio//FindWeapon.wav");
@@ -42,7 +43,7 @@ public class GameManager {
     public URL dragon_01 = getClass().getClassLoader().getResource("audio//talkDragon.wav");
     public URL dragon_02 = getClass().getClassLoader().getResource("audio//");
     public URL dragon_03 = getClass().getClassLoader().getResource("audio//GoodKitty.wav");
-    public URL dragon_04 = getClass().getClassLoader().getResource("audio//");
+    public URL dragon_04 = getClass().getClassLoader().getResource("audio//dragon4.wav");
     public URL cat_01 = getClass().getClassLoader().getResource("");
     public URL cat_02 = getClass().getClassLoader().getResource("");
     public URL cat_03 = getClass().getClassLoader().getResource("");

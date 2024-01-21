@@ -37,7 +37,9 @@ public class Event4 {
     	            if (gm.bossMonster.hpBoss <= 0) {
     	                gm.ui.messageText.setText("Dragon: Boss has been defeated!");
     	            }
+    	            
     	        }
+    	        
     	    } catch (Exception e) {
     	        e.printStackTrace();
     	    }
@@ -48,7 +50,16 @@ public class Event4 {
       }
 
 	public void summonBoss() {
-	    
+		gm.ui.messageText.setText("Boss HP: " + gm.bossMonster.hpBoss);
+		gm.stopMusic(gm.currentMusic);
+	    gm.currentMusic = gm.bossMusic;
+	    gm.playMusic(gm.currentMusic);
+		if (gm.bossMonster.hpBoss <= 0) {
+            gm.stopMusic(gm.currentMusic);
+		    gm.currentMusic = gm.fieldMusic4;
+		    gm.playMusic(gm.currentMusic);
+            
+        }
 		gm.ui.createObject(4, 100, 100 , 300,300,"main\\bossEye.png", "Attack","","","attackBoss","","");		
 	}
 
