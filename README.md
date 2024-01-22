@@ -2,7 +2,7 @@
 
 ## Description
 
-This project is a point-and-click game created by [Your Name]. It immerses players into a mystical world where they can interact with objects, solve puzzles, and explore a captivating storyline.
+This project is a point-and-click game created by Jun. It immerses players into a mystical world where they can interact with objects, solve puzzles, and explore a captivating storyline.
 
 ## Features
 
