@@ -16,7 +16,8 @@ public class SE {
 			AudioInputStream sound = AudioSystem.getAudioInputStream(name);
 			clip = AudioSystem.getClip();
 			clip.open(sound);
-		}catch(Exception x) {
+		}
+		catch(Exception x) {
 				
 		}
 	}

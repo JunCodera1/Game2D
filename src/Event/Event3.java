@@ -19,8 +19,11 @@ public class Event3 {
                 
 	            if (gm.bossMonster.hpSlime <= 0) {
 	                gm.ui.messageText.setText("(slime has been defeated)");
+	                gm.bossMonster.hideMonsterImage(3,"slime.png");
 	            }
+	            gm.bossMonster.bossCounterAttack(1);
 	        }
+	        
 	        
 	    } catch (Exception e) {
 	        e.printStackTrace();

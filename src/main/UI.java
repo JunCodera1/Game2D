@@ -175,8 +175,7 @@ public class UI {
     	
     	bgPanel[bgNum].add(objectLabel);
     	bgPanel[bgNum].add(bgLabel[bgNum]);
-    	bgPanel[bgNum].validate();
-    	
+    	bgPanel[bgNum].validate();	
     }
     
     public void createArrowButton(int bgNum,int x, int y, int width, int height ,String arrowFileName, String command) {
@@ -267,7 +266,7 @@ public class UI {
     	window.add(restartButton);
     	
     }
- 
+    
     
     public void generateScene() {
     	// SCENE 1

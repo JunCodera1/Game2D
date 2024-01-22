@@ -52,7 +52,6 @@ public class Event01 {
 					gm.ui.messageText.setText("Oh shit!\n(You have defeated the knight and gotten his shield!)");
 					gm.player.hasShield += 1;
 					
-					gm.playSE(gm.dragon_03);
 					
 				}
 				gm.player.updatePlayerStatus();
@@ -85,6 +84,7 @@ public class Event01 {
 	}
 	public void touchCat() {
 		gm.ui.messageText.setText("Dragon: Good kitty :>");
+		gm.playSE(gm.cat_01);
 	}
 	public void lookCat() {
 		gm.ui.messageText.setText("Dragon: The cat is almost as big as me");

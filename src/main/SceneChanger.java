@@ -86,7 +86,7 @@ public class SceneChanger {
 		gm.ui.bgPanel[5].setVisible(false);
 		gm.ui.bgPanel[6].setVisible(true);
 		
-		gm.ui.messageText.setText("Dragon: Lucky ! we got outside\nCat: Meow!");
+		gm.ui.messageText.setText("The trial version ends here. Thank you for playing!!!");
 	}
 	
 	public void showGameOverScene(int currentBgNum) {

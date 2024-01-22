@@ -38,9 +38,11 @@ public class Event4 {
     	                    gm.stopMusic(gm.currentMusic);
     	                    gm.currentMusic = gm.victoryMusic;
     	                    gm.playMusic(gm.currentMusic);
+    	                    gm.bossMonster.hideMonsterImage(4,"bossEye.png");
     	                }
+    	                
 
-    	                gm.bossMonster.bossCounterAttack(); // Call boss counter-attack regardless of boss's health
+    	                gm.bossMonster.bossCounterAttack(4);
     	                gm.player.updatePlayerStatus();
     	            }
           

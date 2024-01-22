@@ -1,6 +1,9 @@
 package main;
 
+import java.awt.Component;
 import java.util.Random;
+
+import javax.swing.JLabel;
 
 public class Monster {
     private GameManager gm;
@@ -14,6 +17,7 @@ public class Monster {
 
         setMonsterStatus();
     }
+    
 
     public void setMonsterStatus() {
         hpBoss = 150;
@@ -34,20 +38,32 @@ public class Monster {
 	public int getHealth() {
 		return hpBoss;
 	}
+	public void hideMonsterImage(int bgNum, String monsterURL) {
+        for (Component component : gm.ui.bgPanel[bgNum].getComponents()) {
+            if (component instanceof JLabel) {
+                JLabel label = (JLabel) component;
+                if (label.getIcon() != null && label.getIcon().toString().contains(monsterURL)) {
+                    label.setIcon(null);  
+                }
+            }
+        }
+        gm.ui.bgPanel[bgNum].repaint(); 
+    }
 	
-	public void bossCounterAttack() {
+	public void bossCounterAttack(int currentNum) {
 	    int bossDamage = randomDie.nextInt(gm.bossMonster.maxDamage) + 1;
 
 	    if (gm.bossMonster.hpBoss > 0 && gm.player.playerLife > 0) {
 	        if (gm.player.hasShield == 1 && gm.player.shieldPoint > 0) {
 	            gm.player.shieldPoint -= bossDamage;
 	        } else {
+	        	gm.ui.messageText.setText("The shield was broken..");
 	            gm.player.playerLife -= bossDamage;
 	            gm.player.updatePlayerStatus();
 	        }
 
 	        if (gm.player.playerLife <= 0) {
-	            gm.sChanger.showGameOverScene(4); // Game over if player's life is 0 or less
+	            gm.sChanger.showGameOverScene(currentNum); // Game over if player's life is 0 or less
 	            gm.ui.messageText.setText("Dragon: What a fool.");
 	        }
 	    }
