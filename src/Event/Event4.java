@@ -1,12 +1,12 @@
 package Event;
 
-import javax.swing.JProgressBar;
-
 import main.GameManager;
+
 
 public class Event4 {
 	  GameManager gm;
-	  JProgressBar jb;
+
+
 	  
 	  public Event4(GameManager gm){
 		  this.gm = gm;
@@ -27,27 +27,31 @@ public class Event4 {
 		}
       }
       public void attackBoss() {
-    	  
-    	  if(gm.player.hasSword > 0) {
-    	    try {
-    	        if (gm.bossMonster.hpBoss > 0) {
-    	            gm.bossMonster.hpBoss -= gm.player.damage;
-    	            gm.bossMonster.updateHealthBar();
+    	    if (gm.player.hasSword > 0) {
+    	        try {
+    	            if (gm.bossMonster.hpBoss > 0) {
+    	                gm.bossMonster.hpBoss -= gm.player.damage;
+    	                gm.ui.messageText.setText("Boss HP: " + gm.bossMonster.hpBoss);
 
-    	            if (gm.bossMonster.hpBoss <= 0) {
-    	                gm.ui.messageText.setText("Dragon: Boss has been defeated!");
+    	                if (gm.bossMonster.hpBoss <= 0) {
+    	                    gm.ui.messageText.setText("Dragon: Boss has been defeated!");
+    	                    gm.stopMusic(gm.currentMusic);
+    	                    gm.currentMusic = gm.victoryMusic;
+    	                    gm.playMusic(gm.currentMusic);
+    	                }
+
+    	                gm.bossMonster.bossCounterAttack(); // Call boss counter-attack regardless of boss's health
+    	                gm.player.updatePlayerStatus();
     	            }
-    	            
+          
+    	        } catch (Exception e) {
+    	            e.printStackTrace();
     	        }
-    	        
-    	    } catch (Exception e) {
-    	        e.printStackTrace();
+    	    } else {
+    	        gm.ui.messageText.setText("You are not armed yet!");
     	    }
     	}
-    	  else {
-    		  gm.ui.messageText.setText("You are not armed yet!");
-    	  }
-      }
+
 
 	public void summonBoss() {
 		gm.ui.messageText.setText("Boss HP: " + gm.bossMonster.hpBoss);

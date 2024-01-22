@@ -26,13 +26,14 @@ public class GameManager {
     public Event6 ev6 = new Event6(this);
     
     
-    public URL fieldMusic1 = getClass().getClassLoader().getResource("audio/theme1.wav");
+    public URL fieldMusic1 = getClass().getClassLoader().getResource("audio/fieldSound1.wav");
     public URL fieldMusic2 = getClass().getClassLoader().getResource("audio/fieldSound2.wav");
     public URL fieldMusic3 = getClass().getClassLoader().getResource("audio/fieldSound3.wav");
     public URL fieldMusic4 = getClass().getClassLoader().getResource("audio/fieldSound4.wav");
     public URL fieldMusic5 = getClass().getClassLoader().getResource("audio/fieldSound5.wav");
     public URL fieldMusic6 = getClass().getClassLoader().getResource("audio/fieldSound6.wav");
     public URL bossMusic = getClass().getClassLoader().getResource("audio/Boss1.wav");
+    public URL victoryMusic = getClass().getClassLoader().getResource("audio/victorySound.wav");
 
     
     public URL gameOver = getClass().getClassLoader().getResource("audio//GameOver.wav");

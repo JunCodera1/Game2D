@@ -11,6 +11,7 @@ public class Player {
 	public int hasLantern;
 	
 	public int damage;
+	public int shieldPoint;
 	
 	
 	
@@ -24,7 +25,8 @@ public class Player {
 		hasSword = 0;
 		hasShield = 0;
 		hasLantern = 0;
-		damage = 10;
+		damage = 15;
+		shieldPoint = 5;
 		updatePlayerStatus();
 		
 	}
