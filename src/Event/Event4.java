@@ -16,19 +16,17 @@ public class Event4 {
       }
       public void healDragon() {
     	
-    	  if(gm.player.playerLife != gm.player.playerMaxLife && gm.player.heathPotions > 0) {
+    	  if(gm.player.heathPotions > 0) {
 				gm.ui.messageText.setText("Dragon: Luckily I was saved !(you heal 1 health)");
-				gm.player.playerLife++;
+				gm.player.anHanh(4,-1);
 				gm.player.updatePlayerStatus();
 				gm.player.heathPotions--;
 				gm.playSE(gm.healSound);
 		  }
-    	  else if(gm.player.heathPotions <= 0) {
+    	  else  {
     		  gm.ui.messageText.setText("You have used up all your health potions!");
     	  }
-		  else {
-				gm.ui.messageText.setText("Your life is full.");
-		  }
+		 
       }
       public void attackBoss() {
     	    if (gm.player.hasSword > 0) {
@@ -76,8 +74,4 @@ public class Event4 {
         }
 		gm.ui.createObject(4, 100, 100 , 300,300,"main\\bossEye.png", "Attack","","","attackBoss","","");		
 	}
-
-
-
-
 }

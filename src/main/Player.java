@@ -2,9 +2,11 @@ package main;
 
 public class Player {
 	GameManager gm;
-	
-	public int playerMaxLife;
-	public int playerLife;
+
+
+	private boolean conSong;
+	private int playerMaxLife;
+	private int playerLife;
 	
 	public int hasSword;
 	public int hasShield;
@@ -18,15 +20,30 @@ public class Player {
 	public Player(GameManager gm) {
 		this.gm = gm;
 	}
+
+	public void anHanh(int man, int dam) {
+		playerLife -= dam;
+		if (playerLife <= 0) {
+            gm.sChanger.showGameOverScene(man); // Game over if player's life is 0 or less
+            gm.ui.messageText.setText("Dragon: What a fool.");
+            conSong = false;
+		}
+		else if (playerLife > playerMaxLife) playerLife = playerMaxLife;
+	}
+	
+	public boolean conSongKhong() {
+		return conSong;
+	}
 	
 	public void setPlayerDefaultStatus() {
-		playerMaxLife = 5;
-		playerLife = 5;
+		conSong = true;
+		playerMaxLife = 7;
+		playerLife = 7;
 		hasSword = 0;
 		hasShield = 0;
 		hasLantern = 0;
 		damage = 15;
-		shieldPoint = 7;
+		shieldPoint = 10;
 		heathPotions = 3;
 		updatePlayerStatus();
 		
@@ -34,7 +51,7 @@ public class Player {
 	public void updatePlayerStatus() {
 		// REMOVE ALL LIFE ICON
 		int i = 1;
-		while(i < 6) {
+		while(i < 8) {
 			gm.ui.lifeLabel[i].setVisible(false);
 			i++;
 		}

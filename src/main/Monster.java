@@ -10,6 +10,7 @@ public class Monster {
     public int hpBoss;
     public int hpSlime;
     public int maxDamage;
+    public int slimeDamage;
     Random randomDie = new Random();
 
     public Monster(GameManager gm) {
@@ -22,7 +23,8 @@ public class Monster {
     public void setMonsterStatus() {
         hpBoss = 165;
         hpSlime = 60;
-        maxDamage = 1;
+        maxDamage = 3;
+        slimeDamage = 2;
         updateHealthBar();
     }
 
@@ -53,26 +55,21 @@ public class Monster {
 	public void bossCounterAttack(int currentNum) {
 	    int bossDamage = randomDie.nextInt(gm.bossMonster.maxDamage) + 1;
 
-	    if (gm.bossMonster.hpBoss > 0 && gm.player.playerLife > 0) {
+	    if (gm.bossMonster.hpBoss > 0 && gm.player.conSongKhong()) {
 	        if (gm.player.hasShield == 1 && gm.player.shieldPoint > 0 && gm.player.hasShield > 0) {
 	            gm.player.shieldPoint -= bossDamage;
 	        } 
 	        else {
 	        	if(gm.player.hasShield > 0) {
 	        	gm.ui.messageText.setText("The shield was broken..");
-	            gm.player.playerLife -= bossDamage;
+	            gm.player.anHanh(currentNum, bossDamage);
 	            gm.player.updatePlayerStatus();
 	        	}
 	        	else {
 	        		gm.player.shieldPoint = 0;
-	        		gm.player.playerLife -= bossDamage;
+	        		gm.player.anHanh(currentNum, bossDamage);
 	        		gm.player.updatePlayerStatus();
 	        	}
-	        }
-
-	        if (gm.player.playerLife <= 0) {
-	            gm.sChanger.showGameOverScene(currentNum); // Game over if player's life is 0 or less
-	            gm.ui.messageText.setText("Dragon: What a fool.");
 	        }
 	    }
 	}

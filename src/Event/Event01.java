@@ -14,15 +14,10 @@ public class Event01 {
 		gm.ui.messageText.setText("Who you are talking to ?");
 	}
 	public void restHut() {
-		if(gm.player.playerLife != gm.player.playerMaxLife) {
-			gm.ui.messageText.setText("You rest at the hut.\n(Your life has recovered)");
-			gm.player.playerLife++;
-			gm.player.updatePlayerStatus();
-			gm.playSE(gm.healSound);
-		}
-		else {
-			gm.ui.messageText.setText("Your life is full.");
-		}
+		gm.ui.messageText.setText("You rest at the hut.\n(Your life has recovered)");
+		gm.player.anHanh(0, -1);
+		gm.player.updatePlayerStatus();
+		gm.playSE(gm.healSound);
 	}
 	public void lookDragon() {
 		gm.ui.messageText.setText("a Knight is standing in front of you ");
@@ -35,18 +30,13 @@ public class Event01 {
 		try {
 			if(gm.player.hasShield == 0) {
 				if(gm.player.hasSword == 0) {
-					if(gm.player.playerLife != 1) {
+					if(gm.player.conSongKhong()) {
 						gm.ui.messageText.setText("Dragon : Hey, don't be stupid!\n(The guard hits you back and your life decreases by 1)");
-					    gm.player.playerLife--;
+					    gm.player.anHanh(1, 1);
 					    
 					    gm.playSE(gm.hitSound);
 					    gm.playSE(gm.dragon_02);
 	
-					}
-					else if(gm.player.playerLife == 1) {
-						gm.ui.messageText.setText("Dragon: What a fool.");
-						gm.player.playerLife--;
-						gm.sChanger.showGameOverScene(1);
 					}
 				}
 				else if(gm.player.hasSword == 1) {
@@ -84,7 +74,6 @@ public class Event01 {
 	}
 	public void touchCat() {
 		gm.ui.messageText.setText("Dragon: Good kitty :>");
-		gm.playSE(gm.cat_01);
 	}
 	public void lookCat() {
 		gm.ui.messageText.setText("Dragon: The cat is almost as big as me");

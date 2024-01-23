@@ -32,7 +32,7 @@ public class UI {
     
     //Player UI
     JPanel lifePanel;
-    JLabel lifeLabel[] = new JLabel[6];
+    JLabel lifeLabel[] = new JLabel[8];
     JPanel inventoryPanel;
     public JLabel swordLabel, shieldLabel, lanternLabel;
     
@@ -198,9 +198,9 @@ public class UI {
     }
     public void createPlayerField() {
     	lifePanel = new JPanel();
-    	lifePanel.setBounds(50, 0, 250, 50);
+    	lifePanel.setBounds(50, 0, 350, 50);
     	lifePanel.setBackground(Color.black);
-    	lifePanel.setLayout(new GridLayout(1,5));
+    	lifePanel.setLayout(new GridLayout(1,7));
     	window.add(lifePanel);
     	
     	ImageIcon lifeIcon = new ImageIcon(getClass().getClassLoader().getResource("main/heart1.png"));
@@ -208,7 +208,7 @@ public class UI {
     	lifeIcon = new ImageIcon(image);
     	
     	int i = 1;
-    	while(i < 6) {
+    	while(i < 8) {
     		lifeLabel[i] = new JLabel();
     		lifeLabel[i].setIcon(lifeIcon);
     		lifePanel.add(lifeLabel[i]);
