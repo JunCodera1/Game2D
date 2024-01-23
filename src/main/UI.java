@@ -291,7 +291,7 @@ public class UI {
     	createBackground(3, "main/cave.jpg");
     	createObject(3, 200, 260, 100,90, "main/slime.png", "Attack", "Talk", "Look", "attackSlime", "talkSlime", "lookSlime");
     	createObject(3, 440, 285, 75,90, "main/cat.png", "Scared", "Meow","Look", "scaredCat", "meowCat", "lookCat");
-    	createObject(3, 480, 265, 100,100, "main/dragon.png", "Attack", "Talk", "Look", "attackDragon1", "talkDragon1", "lookDragon1");
+    	createObject(3, 480, 265, 100,100, "main/dragon.png", "Heal :", "Talk", "Look", "healDragon1", "talkDragon1", "lookDragon1");
     	createArrowButton(3, 650, 150, 50, 50, "main/rightArrow.png", "goScene2");
     	createArrowButton(3, 0, 150, 50, 50,"main/leftArrow.png", "goScene4");
     	bgPanel[3].add(bgLabel[3]);

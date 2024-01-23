@@ -15,16 +15,19 @@ public class Event4 {
     	  gm.ui.messageText.setText("It looks dangerous here, something is moving");
       }
       public void healDragon() {
-    	  
     	
-      if(gm.player.playerLife != gm.player.playerMaxLife) {
-			gm.ui.messageText.setText("Dragon: Luckily I was saved !(you heal 1 health)");
-			gm.player.playerLife++;
-			gm.player.updatePlayerStatus();
-		}
-		else {
-			gm.ui.messageText.setText("Your life is full.");
-		}
+    	  if(gm.player.playerLife != gm.player.playerMaxLife && gm.player.heathPotions > 0) {
+				gm.ui.messageText.setText("Dragon: Luckily I was saved !(you heal 1 health)");
+				gm.player.playerLife++;
+				gm.player.updatePlayerStatus();
+				gm.player.heathPotions--;
+		  }
+    	  else if(gm.player.heathPotions <= 0) {
+    		  gm.ui.messageText.setText("You have used up all your health potions!");
+    	  }
+		  else {
+				gm.ui.messageText.setText("Your life is full.");
+		  }
       }
       public void attackBoss() {
     	    if (gm.player.hasSword > 0) {
@@ -51,6 +54,8 @@ public class Event4 {
     	        }
     	    } else {
     	        gm.ui.messageText.setText("You are not armed yet!");
+    	        gm.player.playerLife--;
+    	        gm.player.updatePlayerStatus();
     	    }
     	}
 

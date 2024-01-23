@@ -12,7 +12,7 @@ public class Player {
 	
 	public int damage;
 	public int shieldPoint;
-	
+	public int heathPotions;
 	
 	
 	public Player(GameManager gm) {
@@ -27,6 +27,7 @@ public class Player {
 		hasLantern = 0;
 		damage = 15;
 		shieldPoint = 5;
+		heathPotions = 3;
 		updatePlayerStatus();
 		
 	}
@@ -66,13 +67,4 @@ public class Player {
 
 		
 	}
-
-	public String getName() {
-		return "Dragon";
-	}
-
-	public int getHealth() {
-		return playerLife;
-	}
-
 }

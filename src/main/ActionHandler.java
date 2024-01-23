@@ -40,7 +40,7 @@ public class ActionHandler implements ActionListener {
 		case "attackSlime": gm.ev3.attackSlime();break;
 		case "lookSlime": gm.ev3.lookSlime();break;
 		case "talkSlime": gm.ev3.lookSlime(); break;
-		case "attackDragon1": gm.ev3.attackDragon1(); break;
+		case "healDragon1": gm.ev3.healDragon1(); break;
 		case "lookDragon1": gm.ev3.lookDragon1();break;
 		case "talkDragon1": gm.ev3.talkDragon1();break;
 		case "meowCat": gm.ev3.meowCat(); break;

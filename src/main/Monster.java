@@ -54,12 +54,20 @@ public class Monster {
 	    int bossDamage = randomDie.nextInt(gm.bossMonster.maxDamage) + 1;
 
 	    if (gm.bossMonster.hpBoss > 0 && gm.player.playerLife > 0) {
-	        if (gm.player.hasShield == 1 && gm.player.shieldPoint > 0) {
+	        if (gm.player.hasShield == 1 && gm.player.shieldPoint > 0 && gm.player.hasShield > 0) {
 	            gm.player.shieldPoint -= bossDamage;
-	        } else {
+	        } 
+	        else {
+	        	if(gm.player.hasShield > 0) {
 	        	gm.ui.messageText.setText("The shield was broken..");
 	            gm.player.playerLife -= bossDamage;
 	            gm.player.updatePlayerStatus();
+	        	}
+	        	else {
+	        		gm.player.shieldPoint = 0;
+	        		gm.player.playerLife -= bossDamage;
+	        		gm.player.updatePlayerStatus();
+	        	}
 	        }
 
 	        if (gm.player.playerLife <= 0) {

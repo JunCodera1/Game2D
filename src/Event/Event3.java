@@ -31,6 +31,8 @@ public class Event3 {
 	   }
 	   else {
 		   gm.ui.messageText.setText("You are not armed yet!");
+		   gm.player.playerLife--;
+		   gm.player.updatePlayerStatus();
 	   }
    }
    public void talkSlime() {
@@ -48,8 +50,20 @@ public class Event3 {
    public void meowCat() {
 	   gm.ui.messageText.setText("Cat: Meow...");
    }
-   public void attackDragon1() {
-	   gm.ui.messageText.setText("Dragon: Don't worry, I'm fine\n(You lost 1 HP)");
+   public void healDragon1() {
+ 	
+ 	  if(gm.player.playerLife != gm.player.playerMaxLife && gm.player.heathPotions > 0) {
+				gm.ui.messageText.setText("Dragon: Luckily I was saved !(you heal 1 health)");
+				gm.player.playerLife++;
+				gm.player.updatePlayerStatus();
+				gm.player.heathPotions--;
+		  }
+ 	  if(gm.player.heathPotions <= 0) {
+ 		  gm.ui.messageText.setText("You have used up all your health potions!");
+ 	  }
+		  else {
+				gm.ui.messageText.setText("Your life is full.");
+		  }
    }
    public void talkDragon1() {
 	   gm.ui.messageText.setText("Dragon: Let's try to destroy slime");
