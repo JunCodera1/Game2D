@@ -53,12 +53,12 @@ public class Monster {
     }
 	
 	public void bossCounterAttack(int currentNum) {
-	    int bossDamage = randomDie.nextInt(gm.bossMonster.maxDamage) + 1;
+	    int bossDamage = randomDie.nextInt(gm.bossMonster.maxDamage);
 
 	    if (gm.bossMonster.hpBoss > 0 && gm.player.conSongKhong()) {
 	        if (gm.player.hasShield == 1 && gm.player.shieldPoint > 0 && gm.player.hasShield > 0) {
-	            gm.player.shieldPoint -= bossDamage;
-	        } 
+	            gm.player.shieldPoint -= bossDamage*2 + 1;
+	        }
 	        else {
 	        	if(gm.player.hasShield > 0) {
 	        	gm.ui.messageText.setText("The shield was broken..");

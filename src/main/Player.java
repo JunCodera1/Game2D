@@ -43,7 +43,7 @@ public class Player {
 		hasShield = 0;
 		hasLantern = 0;
 		damage = 15;
-		shieldPoint = 10;
+		shieldPoint = 4;
 		heathPotions = 3;
 		updatePlayerStatus();
 		
