@@ -21,6 +21,7 @@ public class Event4 {
 				gm.player.playerLife++;
 				gm.player.updatePlayerStatus();
 				gm.player.heathPotions--;
+				gm.playSE(gm.healSound);
 		  }
     	  else if(gm.player.heathPotions <= 0) {
     		  gm.ui.messageText.setText("You have used up all your health potions!");
@@ -34,6 +35,7 @@ public class Event4 {
     	        try {
     	            if (gm.bossMonster.hpBoss > 0) {
     	                gm.bossMonster.hpBoss -= gm.player.damage;
+    	                gm.playSE(gm.hitSound);
     	                gm.ui.messageText.setText("Boss HP: " + gm.bossMonster.hpBoss);
 
     	                if (gm.bossMonster.hpBoss <= 0) {
@@ -54,7 +56,8 @@ public class Event4 {
     	        }
     	    } else {
     	        gm.ui.messageText.setText("You are not armed yet!");
-    	        gm.player.playerLife--;
+    	        gm.playSE(gm.hitSound);
+    	        gm.bossMonster.bossCounterAttack(4);   	        
     	        gm.player.updatePlayerStatus();
     	    }
     	}

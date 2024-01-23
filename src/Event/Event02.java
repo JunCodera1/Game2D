@@ -34,6 +34,7 @@ public class Event02 {
 			gm.player.hasLantern = 1;
 			gm.player.updatePlayerStatus();
 		}
+		gm.playSE(gm.findGrass);
 		
 	}
 	public void meowCat() {

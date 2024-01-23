@@ -20,7 +20,7 @@ public class Monster {
     
 
     public void setMonsterStatus() {
-        hpBoss = 150;
+        hpBoss = 165;
         hpSlime = 60;
         maxDamage = 1;
         updateHealthBar();

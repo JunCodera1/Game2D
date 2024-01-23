@@ -35,16 +35,18 @@ public class GameManager {
     public URL bossMusic = getClass().getClassLoader().getResource("audio/Boss1.wav");
     public URL victoryMusic = getClass().getClassLoader().getResource("audio/victorySound.wav");
 
-    
+    public URL findGrass = getClass().getClassLoader().getResource("audio//findGrass.wav");
     public URL gameOver = getClass().getClassLoader().getResource("audio//GameOver.wav");
-    public URL hitSound = getClass().getClassLoader().getResource("audio//dragonLostHP.wav");
-    public URL healSound = getClass().getClassLoader().getResource("audio//heal.wav");
+    public URL hitSound = getClass().getClassLoader().getResource("audio//hitSound.wav");
+    public URL healSound = getClass().getClassLoader().getResource("audio//healSound.wav");
     public URL itemSound = getClass().getClassLoader().getResource("audio//FindWeapon.wav");
     public URL enterSound = getClass().getClassLoader().getResource("audio//enterSound.wav");
+    
     public URL dragon_01 = getClass().getClassLoader().getResource("audio//talkDragon.wav");
-    public URL dragon_02 = getClass().getClassLoader().getResource("audio//");
+    public URL dragon_02 = getClass().getClassLoader().getResource("audio//dragonLostHP.wav");
     public URL dragon_03 = getClass().getClassLoader().getResource("audio//GoodKitty.wav");
     public URL dragon_04 = getClass().getClassLoader().getResource("audio//dragon4.wav");
+    
     public URL cat_01 = getClass().getClassLoader().getResource("");
     public URL cat_02 = getClass().getClassLoader().getResource("");
     public URL cat_03 = getClass().getClassLoader().getResource("");

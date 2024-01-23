@@ -16,6 +16,7 @@ public class Event3 {
                 gm.ui.messageText.setText("Dragon: Simpler than i imagined\n(slime loses blood)\n" 
 	            +"HP Slime: "  
 	            + gm.bossMonster.hpSlime);
+                gm.playSE(gm.hitSound);
                 
 	            if (gm.bossMonster.hpSlime <= 0) {
 	                gm.ui.messageText.setText("(slime has been defeated)");
@@ -31,8 +32,9 @@ public class Event3 {
 	   }
 	   else {
 		   gm.ui.messageText.setText("You are not armed yet!");
-		   gm.player.playerLife--;
+		   gm.playSE(gm.hitSound);
 		   gm.player.updatePlayerStatus();
+		   gm.bossMonster.bossCounterAttack(4); 
 	   }
    }
    public void talkSlime() {
@@ -57,6 +59,7 @@ public class Event3 {
 				gm.player.playerLife++;
 				gm.player.updatePlayerStatus();
 				gm.player.heathPotions--;
+				gm.playSE(gm.healSound);
 		  }
  	  if(gm.player.heathPotions <= 0) {
  		  gm.ui.messageText.setText("You have used up all your health potions!");

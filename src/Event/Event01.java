@@ -40,6 +40,7 @@ public class Event01 {
 					    gm.player.playerLife--;
 					    
 					    gm.playSE(gm.hitSound);
+					    gm.playSE(gm.dragon_02);
 	
 					}
 					else if(gm.player.playerLife == 1) {
@@ -58,7 +59,6 @@ public class Event01 {
 			}
 			else {
 				gm.ui.messageText.setText("Dragon: Just leave me alone.");
-				gm.playSE(gm.dragon_04);
 			}
 		} 
 		catch (Exception e) {
