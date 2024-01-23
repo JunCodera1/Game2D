@@ -56,7 +56,7 @@ public class Event3 {
  	
  	  if(gm.player.heathPotions > 0) {
 				gm.ui.messageText.setText("Dragon: Luckily I was saved !(you heal 1 health)");
-				gm.player.anHanh(0, -1);
+				gm.player.anHanh(0, -2);
 				gm.player.updatePlayerStatus();
 				gm.player.heathPotions--;
 				gm.playSE(gm.healSound);
