@@ -148,8 +148,8 @@ public class UI {
     	// CREATE OBJECTS
     	final JLabel objectLabel = new JLabel();
     	objectLabel.setBounds(objX, objY, objWidth, objHeight);
- 	  	objectLabel.setOpaque(true);
-    	objectLabel.setBackground(Color.blue);
+ 	  	//objectLabel.setOpaque(true);
+    	//objectLabel.setBackground(Color.blue);
     	ImageIcon objIcon = new ImageIcon(getClass().getClassLoader().getResource(objSource));
     
     	objectLabel.setIcon(objIcon);
