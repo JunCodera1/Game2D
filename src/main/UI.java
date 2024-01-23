@@ -148,8 +148,8 @@ public class UI {
     	// CREATE OBJECTS
     	final JLabel objectLabel = new JLabel();
     	objectLabel.setBounds(objX, objY, objWidth, objHeight);
- 	  	//objectLabel.setOpaque(true);
-    	//objectLabel.setBackground(Color.blue);
+ 	  	objectLabel.setOpaque(true);
+    	objectLabel.setBackground(Color.blue);
     	ImageIcon objIcon = new ImageIcon(getClass().getClassLoader().getResource(objSource));
     
     	objectLabel.setIcon(objIcon);
@@ -281,7 +281,7 @@ public class UI {
     	//SCENE 2
     	createBackground(2, "main/caveoutside1.png");
    	    createObject(2, 60, 170, 130, 130, "main/blank.png","Look","Talk","Enter","lookCave", "talkCave","enterCave");
-   	    createObject(2, 240, 250, 90, 90, "main/blank.png","Look","Talk","Search","lookRoot" ,"talkRoot","searchRoot");
+   	    createObject(2, 220, 200, 110, 120, "main/blank.png","Look","Talk","Search","lookRoot" ,"talkRoot","searchRoot");
     	createObject(2, 440, 270, 70,90, "main/cat.png", "Meow", "Curious", "Recumbent", "meowCat", "curiousCat", "recumbentCat");
     	createObject(2, 480, 250, 80,100, "main/dragon.png", "Curious", "Talk", "Attack", "curiousDragon", "talkDragon", "attackDragon");
     	createArrowButton(2, 650, 150, 50, 50, "main/rightArrow.png", "goScene1");
