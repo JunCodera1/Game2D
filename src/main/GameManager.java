@@ -6,6 +6,7 @@ import Event.Event01;
 import Event.Event02;
 import Event.Event3;
 import Event.Event4;
+import Event.Event5;
 import Event.Event6;
 
 public class GameManager {
@@ -23,6 +24,7 @@ public class GameManager {
     public Event02 ev2 = new Event02(this);
     public Event3 ev3 = new Event3(this);
     public Event4 ev4 = new Event4(this);
+    public Event5 ev5 = new Event5(this);
     public Event6 ev6 = new Event6(this);
     
     

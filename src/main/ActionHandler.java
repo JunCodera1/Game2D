@@ -34,21 +34,29 @@ public class ActionHandler implements ActionListener {
 		case "lookRoot" : gm.ev2.lookRoot();break;
 		case "talkRoot" : gm.ev2.talkRoot();break;
 		case "searchRoot": gm.ev2.searchRoot();break;
+		case "talkDragon1": gm.ev2.talkDragon();break;
 		       
 		       // EVENT 3
 		case "noway": gm.sChanger.showGameOverScene(3); gm.ui.messageText.setText("What a fool...");break;
 		case "attackSlime": gm.ev3.attackSlime();break;
 		case "lookSlime": gm.ev3.lookSlime();break;
 		case "talkSlime": gm.ev3.lookSlime(); break;
-		case "healDragon1": gm.ev3.healDragon1(); break;
-		case "lookDragon1": gm.ev3.lookDragon1();break;
-		case "talkDragon1": gm.ev3.talkDragon1();break;
+		case "healDragon1": gm.ev3.healDragon(); break;
+		case "lookDragon1": gm.ev3.lookDragon();break;
+		case "talkDragon2": gm.ev3.talkDragon();break;
 		case "meowCat": gm.ev3.meowCat(); break;
 		
 		// EVENT 4
 		case "attackBoss": gm.ev4.attackBoss();break;
 		case "healDragon": gm.ev4.healDragon();break;
 		case "summonBoss": gm.ev4.summonBoss();break;
+		case "hideCat": gm.ev4.hideCat();break;
+		
+		// EVENT 5
+		case "supriseCat": gm.ev5.supriseCat();break;
+		case "happyDragon": gm.ev5.happyDragon();break;
+		// EVENT 6
+		case "happyDragon1": gm.ev6.happyDragon();break;
 		// Change Scene
 		
 		case "goScene1": gm.sChanger.showScene1();break;

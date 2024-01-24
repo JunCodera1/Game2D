@@ -52,7 +52,6 @@ public class UI {
         // Load the custom font
         Font pixelMplus = loadCustomFont();
 
-        // Move window.setVisible(true) down to the end
         createMainField(pixelMplus);
         createPlayerField();
         generateScene();
@@ -283,7 +282,7 @@ public class UI {
    	    createObject(2, 60, 170, 130, 130, "main/blank.png","Look","Talk","Enter","lookCave", "talkCave","enterCave");
    	    createObject(2, 220, 200, 110, 120, "main/blank.png","Look","Talk","Search","lookRoot" ,"talkRoot","searchRoot");
     	createObject(2, 440, 270, 70,90, "main/cat.png", "Meow", "Curious", "Recumbent", "meowCat", "curiousCat", "recumbentCat");
-    	createObject(2, 480, 250, 80,100, "main/dragon.png", "Curious", "Talk", "Attack", "curiousDragon", "talkDragon", "attackDragon");
+    	createObject(2, 480, 250, 80,100, "main/dragon.png", "Curious", "Talk", "", "curiousDragon", "talkDragon1", "");
     	createArrowButton(2, 650, 150, 50, 50, "main/rightArrow.png", "goScene1");
     	bgPanel[2].add(bgLabel[2]);
     	
@@ -308,15 +307,15 @@ public class UI {
     	//SCENE 5
     	createBackground(5, "main/caveexit.png");
     	createArrowButton(5,650,150,50,50,"main/rightArrow.png", "goScene4");
-    	createObject(5, 440, 285, 75,90, "main/cat.png", "Scared", "Meow","Look", "scaredCat2", "meowCat2", "lookCat2");
-    	createObject(5, 480, 265, 100,100, "main/dragon.png", "Attack", "Talk", "Look", "attackDragon3", "talkDragon3", "lookDragon3");
+    	createObject(5, 440, 285, 75,90, "main/cat.png", "Suprise", "","", "supriseCat", "", "");
+    	createObject(5, 480, 265, 100,100, "main/dragon.png", "Happy", "", "", "happyDragon", "", "");
     	createArrowButton(5,0,150,50,50,"main/leftArrow.png", "goScene6");
     	bgPanel[5].add(bgLabel[5]);
     	
     	//SCENE 6
     	createBackground(6, "main/caveout.jpg");
-    	createObject(6, 440, 285, 75,90, "main/cat.png", "Scared", "Meow","Look", "scaredCat3", "meowCat3", "lookCat3");
-    	createObject(6, 480, 265, 100,100, "main/dragon.png", "Attack", "Talk", "Look", "attackDragon4", "talkDragon4", "lookDragon4");
+    	createObject(6, 440, 285, 75,90, "main/cat.png", "Happy", "","", "happyCat", "", "");
+    	createObject(6, 480, 265, 100,100, "main/dragon.png", "Happy", "","", "happyDragon1", "","");
     	createObject(6, 50, 190, 200, 200, "main/door.png", "Exit Game","","","exitDoor","", "");
     	createArrowButton(6, 650, 150, 50, 50, "main/rightArrow.png","goScene5");
     	bgPanel[6].add(bgLabel[6]);

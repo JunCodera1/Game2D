@@ -29,6 +29,7 @@ public class Event4 {
 		 
       }
       public void attackBoss() {
+    	  
     	    if (gm.player.hasSword > 0) {
     	        try {
     	            if (gm.bossMonster.hpBoss > 0) {
@@ -41,7 +42,7 @@ public class Event4 {
     	                    gm.stopMusic(gm.currentMusic);
     	                    gm.currentMusic = gm.victoryMusic;
     	                    gm.playMusic(gm.currentMusic);
-    	                    gm.bossMonster.hideMonsterImage(4,"bossEye.png");
+    	                    gm.bossMonster.hideImage(4,"bossEye.png");
     	                }
     	                
 
@@ -60,8 +61,9 @@ public class Event4 {
     	    }
     	}
 
-
+    
 	public void summonBoss() {
+		
 		gm.ui.messageText.setText("Boss HP: " + gm.bossMonster.hpBoss);
 		gm.stopMusic(gm.currentMusic);
 	    gm.currentMusic = gm.bossMusic;
@@ -73,5 +75,10 @@ public class Event4 {
             
         }
 		gm.ui.createObject(4, 100, 100 , 300,300,"main\\bossEye.png", "Attack","","","attackBoss","","");		
+	}
+	
+	public void hideCat() {
+		
+		gm.bossMonster.hideImage(4, "main/cat.png");
 	}
 }

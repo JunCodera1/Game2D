@@ -33,14 +33,7 @@ public class Monster {
         gm.ui.messageText.setText("Boss HP: " + hpBoss);
     }
 
-	public String getName() {
-		return "Boss";
-	}
-
-	public int getHealth() {
-		return hpBoss;
-	}
-	public void hideMonsterImage(int bgNum, String monsterURL) {
+	public void hideImage(int bgNum, String monsterURL) {
         for (Component component : gm.ui.bgPanel[bgNum].getComponents()) {
             if (component instanceof JLabel) {
                 JLabel label = (JLabel) component;
